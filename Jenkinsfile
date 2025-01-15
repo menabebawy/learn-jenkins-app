@@ -56,6 +56,12 @@ pipeline {
             }
         }
 
+        stage('Approval') {
+            steps {
+                input('Danger, do you wish to deploy to Prod?')
+            }
+        }
+
         stage('Deploy') {
             agent {
                 docker {
